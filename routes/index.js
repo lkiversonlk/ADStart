@@ -19,7 +19,7 @@ router.use(express.query());
 router.use('/wechat', wechat(config, function(req, res, next){
   var message = req.weixin;
   winston.log('debug', message);
-  res.reply("É½ÄÇ±ßµÄÅóÓÑ£¬ÎÒÌıµ½ÄúµÄÉùÒôÁË£¡");
+  res.reply("å±±é‚£è¾¹çš„æœ‹å‹ï¼Œæˆ‘ä»¬å¬åˆ°æ‚¨çš„å£°éŸ³äº†ï¼ï¼ï¼");
 }));
 
 module.exports = router;
