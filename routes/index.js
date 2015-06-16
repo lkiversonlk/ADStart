@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.use(express.query());
 
-app.use('/wechat', wechat(app_config.data).text(function (message, req, res, next) {
+router.use('/wechat', wechat(app_config.data).text(function (message, req, res, next) {
   res.reply("收到您的消息了！朋友");
 }).image(function (message, req, res, next) {
   // TODO
