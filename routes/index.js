@@ -13,10 +13,24 @@ router.get('/', function(req, res, next) {
 
 router.use(express.query());
 
-router.use('/wechat', wechat(app_config.data, function(req, res, next){
-  var message = req.weixin;
-  winston.log('debug', message);
-  res.reply("山那边的朋友，我们听到您的声音了！！！");
-}));
+app.use('/wechat', wechat(app_config.data).text(function (message, req, res, next) {
+  res.reply("收到您的消息了！朋友");
+}).image(function (message, req, res, next) {
+  // TODO
+}).voice(function (message, req, res, next) {
+  // TODO
+}).video(function (message, req, res, next) {
+  // TODO
+}).location(function (message, req, res, next) {
+  // TODO
+}).link(function (message, req, res, next) {
+  // TODO
+}).event(function (message, req, res, next) {
+  // TODO
+}).device_text(function (message, req, res, next) {
+  // TODO
+}).device_event(function (message, req, res, next) {
+  // TODO
+}).middlewarify());
 
 module.exports = router;
