@@ -16,6 +16,7 @@
     "morgan": "~1.5.3",
     "serve-favicon": "~2.2.1",
     "wechat": "^2.0.0",
+    "wechat-api": "^1.9.3",
     "winston": "^1.0.0"
   }
 }

@@ -4,23 +4,21 @@
 var yaml = require("js-yaml");
 var winston = require("winston");
 var fs = require("fs");
+var config = require("../config/config").config;
+var wechatapi = require("wechat-api");
 
-var rootDir = process.cwd();
+var appConfig = new config(process.cwd());
 
-var appid = undefined;
-var appSecret = undefined;
-var encodingAESKey = undefined;
-var token = undefined;
+var api = new wechatapi(appConfig.data.appid, appConfig.data.appSecret);
 
-try{
-    var data = yaml.safeLoad(fs.readFileSync(rootDir + "/data.yaml", "utf-8"));
-    appid = data.appid;
-    appSecret = data.appSecret;
-    encodingAESKey = data.encodingAESKey;
-    token = data.token;
-}catch(e){
-    winston.log("error", "fail to load configuration ", e);
-    process.exit(1);
-}
+var menu = appConfig.loadMenu();
+
+api.createMenu(menu, function(error, result){
+    if(error){
+        console.log(error);
+    }else{
+        console.log(result);
+    }
+});
 
 
