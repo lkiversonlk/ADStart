@@ -1,22 +1,24 @@
 {
   "button":[
     {
-      "type":"click",
-      "name":"今日歌曲",
-      "key":"V1001_TODAY_MUSIC"
+      "type":"view",
+      "name":"我的带盐",
+      "url":"http://www.baidu.com"
     },
     {
-      "name":"菜单",
+      "name":"我要带盐",
+      "type":"view",
+      "url":"http://www.baidu.com"
+    },
+    {
+      "name":"更多",
       "sub_button":[
         {
           "type":"view",
-          "name":"搜索",
-          "url":"http://www.soso.com/"
-        },
-        {
-          "type":"click",
-          "name":"赞一下我们",
-          "key":"V1001_GOOD"
-        }]
-    }]
+          "name":"看看别人",
+          "url":"http://www.baidu.com"
+        }
+      ]
+    }
+  ]
 }
