@@ -1,0 +1,26 @@
+/**
+ * Created by kliu on 16/06/2015.
+ */
+var yaml = require("js-yaml");
+var winston = require("winston");
+var fs = require("fs");
+
+var rootDir = process.cwd();
+
+var appid = undefined;
+var appSecret = undefined;
+var encodingAESKey = undefined;
+var token = undefined;
+
+try{
+    var data = yaml.safeLoad(fs.readFileSync(rootDir + "/data.yaml", "utf-8"));
+    appid = data.appid;
+    appSecret = data.appSecret;
+    encodingAESKey = data.encodingAESKey;
+    token = data.token;
+}catch(e){
+    winston.log("error", "fail to load configuration ", e);
+    process.exit(1);
+}
+
+
