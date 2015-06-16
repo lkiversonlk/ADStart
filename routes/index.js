@@ -17,6 +17,7 @@ router.use('/wechat', wechat(app_config.data).text(function (message, req, res, 
   res.reply("收到您的消息了！朋友");
 }).image(function (message, req, res, next) {
   // TODO
+  res.reply(message.PicUrl);
 }).voice(function (message, req, res, next) {
   // TODO
 }).video(function (message, req, res, next) {
