@@ -1,5 +1,7 @@
 extends layout
 
+brands!= brands
+
 block content
   section
     div.navbar.navbar-default.navbar-fixed-top
@@ -7,8 +9,10 @@ block content
         img(src="images/title.png", height="100%")
         | 请选择品牌
   div(style="height:3.1em;")
+
   article
      div.list-group
-       a.list-group-item
-         span.glyphicon.glyphicon-star(aria-hidden="true")
-         | Start
+       each brand, i in brands
+         a.list-group-item
+           span.glyphicon.glyphicon-star
+           | #{brand}
