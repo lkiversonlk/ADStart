@@ -1,0 +1,29 @@
+extends layout
+
+brands!= brands
+
+block content
+  section.container-fluid
+    div.navbar.navbar-default.navbar-fixed-top
+      div.container(style="height:3em;text-align:center")
+        img(src="images/title.png", height="100%")
+        | 请选择品牌
+  div(style="height:4em;")
+
+  div.container
+    div.input-group
+      span.input-group-addon
+        i.glyphicon.glyphicon-search
+      input#search.form-control(type="text")
+    article
+        ul#brands-list.list-group.kliu-list
+          each brand, i in brands
+            li
+              a.list-group-item.kliu-list-item(href="/brands/" + brand.id)
+                img(src="images/brands/" + brand.img)
+                | #{brand.name}
+                p
+                  | #{brand.brief}
+
+  script(src='javascripts/index.js')
+  link(rel='stylesheet', href='stylesheets/index.css')
