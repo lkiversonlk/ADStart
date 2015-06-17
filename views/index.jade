@@ -3,22 +3,23 @@ extends layout
 brands!= brands
 
 block content
-  section
+  section.container-fluid
     div.navbar.navbar-default.navbar-fixed-top
       div.container(style="height:3em;text-align:center")
         img(src="images/title.png", height="100%")
         | 请选择品牌
   div(style="height:4em;")
 
-  div.input-group
-    span.input-group-addon
-      i.glyphicon.glyphicon-search
-    input#search.form-control(type="text")
-  article
-     div#brands-list.list-group
-       each brand, i in brands
-         a.list-group-item
-           span.glyphicon.glyphicon-star
-           | #{brand}
+  div.container
+    div.input-group
+      span.input-group-addon
+        i.glyphicon.glyphicon-search
+      input#search.form-control(type="text")
+    article
+        div#brands-list.list-group
+          each brand, i in brands
+            a.list-group-item
+              span.glyphicon.glyphicon-star
+              | #{brand}
 
   script(src='javascripts/index.js')
