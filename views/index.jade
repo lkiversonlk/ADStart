@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  section
+    div.navbar.navbar-default.navbar-fixed-top
+      div.container(style="height:3em;text-align:center")
+        img(src="images/title.png", height="100%")
+        | 请选择品牌
+  div(style="height:3.1em;")
+  article
+     div.list-group
+       a.list-group-item
+         span.glyphicon.glyphicon-star(aria-hidden="true")
+         | Start

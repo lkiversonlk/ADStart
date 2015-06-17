@@ -7,8 +7,8 @@ var config = require("../config/config").config;
 var app_config = new config(process.cwd());
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/index', function(req, res, next) {
+  res.render('index', {  });
 });
 
 router.use(express.query());
