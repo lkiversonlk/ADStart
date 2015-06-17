@@ -16,10 +16,14 @@ block content
         i.glyphicon.glyphicon-search
       input#search.form-control(type="text")
     article
-        div#brands-list.list-group
+        ul#brands-list.list-group.kliu-list
           each brand, i in brands
-            a.list-group-item
-              span.glyphicon.glyphicon-star
-              | #{brand}
+            li
+              a.list-group-item.kliu-list-item
+                img(src="images/brands/" + brand.img)
+                | #{brand.name}
+                p
+                  #{brand.brief}
 
   script(src='javascripts/index.js')
+  link(rel='stylesheet', href='stylesheets/index.css')

@@ -61,4 +61,14 @@ app.use(function(err, req, res, next) {
   });
 });
 
+var Dao = require("./data/dao").Dao;
+
+try{
+  var dao = new Dao("");
+  app.set("dao", dao);
+}catch(error){
+  winston.log("error", "fail to load database", error)
+  process.exit(1);
+}
+
 module.exports = app;

@@ -1,3 +1,22 @@
 body{
+}
 
+.kliu-list-item{
+    height: 40px;
+    line-height:20px;
+}
+
+.kliu-list li{
+    list-style: none;
+}
+
+.kliu-list li img{
+    float: left;
+    margin-right:10px;
+}
+.kliu-list li a{
+    height: 66px;
+    display: block;
+    padding: 12px 0 12px 10px;
+    position: relative;
 }

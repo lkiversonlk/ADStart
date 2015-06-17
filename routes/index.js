@@ -8,14 +8,10 @@ var app_config = new config(process.cwd());
 
 /* GET home page. */
 router.get('/index', function(req, res, next) {
-  var brands = [];
-  for(var i = 0; i < 20; i++){
-    brands.push("test" + i);
-  }
+  var dao = req.app.get("dao");
   var data = {
-    "brands" : brands,
-    "title"  : "just a test"
-  };
+    brands : dao.allBrands()
+  }
   res.render('index', data);
 });
 
