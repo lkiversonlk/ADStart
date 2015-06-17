@@ -10,7 +10,7 @@ var app_config = new config(process.cwd());
 router.get('/index', function(req, res, next) {
   var brands = [];
   for(var i = 0; i < 20; i++){
-    brands.push("test");
+    brands.push("test" + i);
   }
   var data = {
     "brands" : brands,
