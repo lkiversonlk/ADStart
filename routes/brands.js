@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     var dao = req.app.get("dao");
     var data = {
         brands : dao.allBrands()
-    }
+    };
     res.render('brands', data);
 });
 
