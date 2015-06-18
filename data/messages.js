@@ -15,10 +15,14 @@ var Message = {
     "\n欢迎联系我们，与我们进行交流，更热烈欢迎愿意加入我们的小伙伴！" +
     "\n手机:18810232704 \n邮件:jerry.kliu@vip.126.com\n微信:272293041",
 
+    WHAT_ARE_WE_MESSAGE : "什么是带盐人？\n" +
+        "带盐人的初衷就是让每个普通的人可以为自己觉得好的东西进行推荐，同时也让好的产品能够靠着口口相传广泛传播。\n" +
+        "广告不应该只是一些收了钱的明星在电视网上虚假的宣传，而是我们真实的向朋友宣传我们的生活方式。\n" +
+        "有好的产品，也不用花费巨额的广告费用，酒香不再怕巷子深，有了移动互联网，我们帮他们香飘万里",
     HandleText : function(text){
         switch (text){
             case '1':
-                return '';
+                return this.WHAT_ARE_WE_MESSAGE;
             case '2':
                 return '';
             case '3':
