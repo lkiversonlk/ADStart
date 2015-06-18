@@ -5,7 +5,7 @@ var winston = require("winston");
 var config = require("../config/config").config;
 var Message = require("../data/messages").Message;
 var app_config = new config(process.cwd());
-
+var winston = require("winston");
 /* GET home page. */
 router.get('/index', function(req, res, next) {
   var dao = req.app.get("dao");
@@ -18,6 +18,7 @@ router.get('/index', function(req, res, next) {
 router.use(express.query());
 
 router.use('/wechat', wechat(app_config.data).text(function (message, req, res, next) {
+  winton.log("debug", message);
   res.reply(Message.WELCOME_MESSAGE);
 }).image(function (message, req, res, next) {
   // TODO
@@ -31,6 +32,7 @@ router.use('/wechat', wechat(app_config.data).text(function (message, req, res, 
 }).link(function (message, req, res, next) {
   // TODO
 }).event(function (message, req, res, next) {
+  winston.log("debug", message);
   switch (message.Event){
     case "subscribe":
       res.reply(Message.WELCOME_MESSAGE);
