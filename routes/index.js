@@ -37,7 +37,7 @@ router.use('/wechat', wechat(app_config.data).text(function (message, req, res, 
     case "subscribe":
       res.reply(Message.WELCOME_MESSAGE);
       break;
-    case "click":
+    case "CLICK":
           switch (message.EventKey){
             case "aboutus":
               res.reply(Message.ABOUT_US_MESSAGE);
