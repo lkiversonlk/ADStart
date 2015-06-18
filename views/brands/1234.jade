@@ -4,4 +4,17 @@
 extends ../layout
 
 block content
-   | What the fuck?
+   link(rel='stylesheet', href='/brands/1234/index.css')
+   script(src='/brands/1234/index.js')
+
+   div
+       article.container-fluid
+           div.row(style="text-align:center")
+               img(src="/brands/1234/title.png")
+
+       article.container
+           div.row(style="margin-top: 20px")
+              section.col-md-8.col-md-offset-2.col-xs-6.col-xs-offset-3
+                  p
+                     | 花猫辣炒系列深受广大食客喜爱，炒虾尾，皮皮虾，烧螃蟹都让人难以忘记！亲爱的小伙伴么，来帮花猫美食做带盐人吧！
+
