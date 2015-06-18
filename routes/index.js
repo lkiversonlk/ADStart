@@ -31,15 +31,19 @@ router.use('/wechat', wechat(app_config.data).text(function (message, req, res, 
 }).link(function (message, req, res, next) {
   // TODO
 }).event(function (message, req, res, next) {
-  switch (message.EventKey){
-    case "aboutus":
-          res.reply("我们是位于北京市朝阳区的一家初创互联网广告公司，我们相信，互联网时代也将深刻的改变广告行业。\n移动时代的广告需要更可信，更真实，更亲切。\n我们会帮助好的产品像病毒一样传播开来!" +
-              "\n欢迎联系我们，与我们进行交流，更热烈欢迎愿意加入我们的小伙伴！" +
-              "\n手机:18810232704 \n邮件:jerry.kliu@vip.126.com\n微信:272293041");
-          break;
+  switch (message.Event){
     case "subscribe":
-          res.reply('欢迎来到带盐人！ 我们这里有很多很好的产品在等着大明星您给ta带盐！当然，店家一定会好好的酬谢各位带盐人!');
-          break;
+      res.reply('欢迎来到带盐人！ 我们这里有很多很好的产品在等着大明星您给ta带盐！当然，店家一定会好好的酬谢各位带盐人!');
+      break;
+    case "click":
+          switch (message.EventKey){
+            case "aboutus":
+              res.reply("我们是位于北京市朝阳区的一家初创互联网广告公司，我们相信，互联网时代也将深刻的改变广告行业。\n移动时代的广告需要更可信，更真实，更亲切。\n我们会帮助好的产品像病毒一样传播开来!" +
+                  "\n欢迎联系我们，与我们进行交流，更热烈欢迎愿意加入我们的小伙伴！" +
+                  "\n手机:18810232704 \n邮件:jerry.kliu@vip.126.com\n微信:272293041");
+              break;
+          }
+
   }
 }).device_text(function (message, req, res, next) {
   // TODO
