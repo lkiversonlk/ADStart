@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/:brand_id", function(req, res){
-    res.end("end " + req.params.brand_id + " ~");
+    res.render("brands/" + req.params.brand_id, {});
 });
 
 module.exports = router;

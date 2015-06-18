@@ -6,7 +6,7 @@ block content
   section.container-fluid
     div.navbar.navbar-default.navbar-fixed-top
       div.container(style="height:3em;text-align:center")
-        img(src="images/title.png", height="100%")
+        img(src="/images/title.png", height="100%")
         | 请选择品牌
   div(style="height:4em;")
 
@@ -20,10 +20,10 @@ block content
           each brand, i in brands
             li
               a.list-group-item.kliu-list-item(href="/brands/" + brand.id)
-                img(src="images/brands/" + brand.img)
+                img(src="/brands/" + brand.id + "/logo.png")
                 | #{brand.name}
                 p
                   | #{brand.brief}
 
-  script(src='javascripts/index.js')
-  link(rel='stylesheet', href='stylesheets/index.css')
+  script(src='/javascripts/index.js')
+  link(rel='stylesheet', href='/stylesheets/index.css')
