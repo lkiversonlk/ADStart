@@ -3,7 +3,7 @@ var router = express.Router();
 var wechat = require("wechat");
 var winston = require("winston");
 var config = require("../config/config").config;
-
+var Message = require("../data/message");
 var app_config = new config(process.cwd());
 
 /* GET home page. */
@@ -18,7 +18,7 @@ router.get('/index', function(req, res, next) {
 router.use(express.query());
 
 router.use('/wechat', wechat(app_config.data).text(function (message, req, res, next) {
-  res.reply("收到您的消息了！朋友");
+  res.reply(Message.WELCOME_MESSAGE);
 }).image(function (message, req, res, next) {
   // TODO
   res.reply(message.PicUrl);
@@ -33,7 +33,7 @@ router.use('/wechat', wechat(app_config.data).text(function (message, req, res, 
 }).event(function (message, req, res, next) {
   switch (message.Event){
     case "subscribe":
-      res.reply('欢迎来到带盐人！ 我们这里有很多很好的产品在等着大明星您给ta带盐！当然，店家一定会好好的酬谢各位带盐人!');
+      res.reply(Message.WELCOME_MESSAGE);
       break;
     case "click":
           switch (message.EventKey){
