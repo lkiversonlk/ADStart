@@ -5,6 +5,10 @@ body{
     margin-top: 6px;
 }
 
+img{
+    width:100%;
+}
+
 .kliu-list-item{
     height: 40px;
     line-height:20px;
