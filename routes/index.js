@@ -3,7 +3,7 @@ var router = express.Router();
 var wechat = require("wechat");
 var winston = require("winston");
 var config = require("../config/config").config;
-var Message = require("../data/message");
+var Message = require("../data/messages");
 var app_config = new config(process.cwd());
 
 /* GET home page. */
