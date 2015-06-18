@@ -18,8 +18,7 @@ router.get('/index', function(req, res, next) {
 router.use(express.query());
 
 router.use('/wechat', wechat(app_config.data).text(function (message, req, res, next) {
-  winston.log("debug", message);
-  res.reply(Message.WELCOME_MESSAGE);
+  res.reply(Message.HandleText(message.Content));
 }).image(function (message, req, res, next) {
   // TODO
   res.reply(message.PicUrl);
