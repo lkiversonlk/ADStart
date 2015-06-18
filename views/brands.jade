@@ -3,6 +3,7 @@ extends layout
 brands!= brands
 
 block content
+  link(rel='stylesheet', href='/stylesheets/index.css')
   section.container-fluid
     div.navbar.navbar-default.navbar-fixed-top
       div.container(style="height:3em;text-align:center")
@@ -26,4 +27,4 @@ block content
                   | #{brand.brief}
 
   script(src='/javascripts/index.js')
-  link(rel='stylesheet', href='/stylesheets/index.css')
+

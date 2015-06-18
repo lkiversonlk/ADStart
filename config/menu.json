@@ -14,9 +14,9 @@
       "name":"更多",
       "sub_button":[
         {
-          "type":"view",
-          "name":"看看别人",
-          "url":"http://www.baidu.com"
+          "type":"click",
+          "name":"关于我们",
+          "key" : "aboutus"
         }
       ]
     }

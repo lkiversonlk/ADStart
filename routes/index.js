@@ -31,7 +31,11 @@ router.use('/wechat', wechat(app_config.data).text(function (message, req, res, 
 }).link(function (message, req, res, next) {
   // TODO
 }).event(function (message, req, res, next) {
-  // TODO
+  switch (message.EventKey){
+    case "aboutus":
+          res.reply("我们是位于北京市朝阳区的一家初创互联网广告公司，我们相信，互联网时代也将深刻的改变广告行业，广告需要更可信，更真实。我们会帮助好的产品想病毒一样传播开来。" +
+              "\n联系我们：\n 手机：18810232704 \n邮件： jerry.kliu@vip.126.com \n微信: 272293041");
+  }
 }).device_text(function (message, req, res, next) {
   // TODO
 }).device_event(function (message, req, res, next) {
