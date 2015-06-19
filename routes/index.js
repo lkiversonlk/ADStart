@@ -42,7 +42,6 @@ router.use('/wechat', wechat(app_config.data).text(function (message, req, res, 
               res.reply(Message.ABOUT_US_MESSAGE);
               break;
           }
-
   }
 }).device_text(function (message, req, res, next) {
   // TODO

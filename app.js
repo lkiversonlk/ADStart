@@ -1,13 +1,17 @@
 var express = require('express');
 var path = require('path');
-//var favicon = require('serve-favicon');
+var favicon = require('serve-favicon');
 var logger = require('morgan');
 //var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var config = require("./config/config").config;
-var routes = require('./routes/index');
+//var routes = require('./routes/index');
 var users = require('./routes/users');
 var brands = require("./routes/brands");
+var templates = require("./routes/templates");
+var wechatRouter = require("./routes/wechat-router").wechatRouter;
+var config = require("./config/config").config;
+var appConfig = new config(process.cwd());
 
 var app = express();
 
@@ -22,6 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.query());
 
 app.use(function(req, res, next){
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -29,9 +34,11 @@ app.use(function(req, res, next){
   next();
 });
 
-app.use('/', routes);
+//app.use('/', routes);
+app.use("/wechat", wechatRouter(appConfig.data));
 app.use('/users', users);
 app.use('/brands', brands);
+app.use("/templates", templates);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -64,8 +71,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var Dao = require("./data/dao").Dao;
 
+//initial Dao
+var Dao = require("./data/dao").Dao;
 try{
   var dao = new Dao("");
   app.set("dao", dao);
@@ -73,5 +81,10 @@ try{
   winston.log("error", "fail to load database", error)
   process.exit(1);
 }
+
+//initial api
+var wechatapi = require("wechat-api");
+var api = new wechatapi(appConfig.data.appid, appConfig.data.appSecret);
+app.set("wechat-api", api);
 
 module.exports = app;

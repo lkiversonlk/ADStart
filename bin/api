@@ -21,4 +21,12 @@ api.createMenu(menu, function(error, result){
     }
 });
 
+/**
+api.getTicket(function(error, result){
+    if(error){
 
+    }else{
+        console.log(result);
+    }
+});
+*/
