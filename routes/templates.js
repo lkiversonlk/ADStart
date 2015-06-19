@@ -7,9 +7,25 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/:template_id', function(req, res, next) {
-    var fakeData = {};
-    fakeData.jsTicket = "nothing";
-    res.render("templates/" + req.params.template_id, fakeData);
+    var api = req.app.get("wechat-api");
+    var configParam = null;
+    var param = {
+        debug : true,
+        jsApiList : [
+            'chooseImage'
+        ],
+        url : 'http://123.59.43.175'
+    };
+
+    api.getJsConfig(param, function(error, result){
+        if(error){
+            res.end("fail to get js config, please refresh the page");
+        }else{
+            res.render("templates/" + req.params.template_id, {
+                'configParam' : JSON.stringify(result)
+            });
+        }
+    });
 });
 
 module.exports = router;

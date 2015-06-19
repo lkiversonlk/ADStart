@@ -5,8 +5,8 @@ extends ../layout
 
 block content
    script(typ="text/javascript").
-      var jsTicket = #{jsTicket}
+      var config = !{configParam};
    script(src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
-   script(src='/template/base.js')
+   script(src='/templates/base.js')
 
    block template

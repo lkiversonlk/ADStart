@@ -21,7 +21,7 @@ api.createMenu(menu, function(error, result){
     }
 });
 
-/**
+/*
 api.getTicket(function(error, result){
     if(error){
 
@@ -30,3 +30,17 @@ api.getTicket(function(error, result){
     }
 });
 */
+
+var param = {
+    debug : true,
+    jsApiList : [],
+    url : 'http://123.59.43.175'
+};
+
+api.getJsConfig(param, function(error, result){
+    if(error){
+        console.log(error);
+    }else{
+        console.log(result);
+    }
+});
