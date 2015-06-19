@@ -14,7 +14,7 @@ router.get('/:template_id', function(req, res, next) {
         jsApiList : [
             'chooseImage'
         ],
-        url : 'http://123.59.43.175'
+        url : req.protocol + "://" + req.get('host') + req.originalUrl
     };
 
     api.getJsConfig(param, function(error, result){
