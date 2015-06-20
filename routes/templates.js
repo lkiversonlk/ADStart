@@ -4,6 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
+var winston = require("winston");
 
 /* GET users listing. */
 router.get('/:template_id', function(req, res, next) {
@@ -16,7 +17,7 @@ router.get('/:template_id', function(req, res, next) {
         ],
         url : req.protocol + "://" + req.get('host') + req.originalUrl
     };
-
+    winston.log("info", "config param", param);
     api.getJsConfig(param, function(error, result){
         if(error){
             res.end("fail to get js config, please refresh the page");
