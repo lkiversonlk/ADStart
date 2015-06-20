@@ -17,6 +17,7 @@
     "serve-favicon": "~2.2.1",
     "wechat": "^2.0.0",
     "wechat-api": "^1.9.3",
+    "wechat-oauth": "^1.0.1",
     "winston": "^1.0.0"
   }
 }

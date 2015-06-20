@@ -13,7 +13,7 @@ var wechatRouter = require("./routes/wechat-router").wechatRouter;
 var config = require("./config/config").config;
 var appConfig = new config(process.cwd());
 var wechatapi = require("wechat-api");
-//var wechatApi = require("./wechat-api/wechat-api").wechatApi;
+var wechatOauth = require("wechat-oauth");
 
 var app = express();
 
@@ -86,5 +86,8 @@ try {
 
 var api = new wechatapi(appConfig.data.appid, appConfig.data.appSecret);
 app.set("wechat-api", api);
+
+var oauth = new wechatOauth(appConfig.data.appid, appConfig.data.appSecret);
+app.set("wechat-oauth", oauth);
 
 module.exports = app;
