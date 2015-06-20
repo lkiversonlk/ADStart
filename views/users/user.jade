@@ -4,7 +4,8 @@
 extends ../layout
 
 block content
-   section.header
+    link(rel='stylesheet', href='/stylesheets/user.css')
+    section.header
        div.navbar.navbar-default
            div.container(style="height:3em;text-align:center")
                img(src="/images/title.png", height="100%")
@@ -16,7 +17,7 @@ block content
            div(style="float:left; padding-left:10%;")
                    | #{user.name}
 
-   section.statistics.container(style="padding-top: 20px")
+   section.border.container(style="padding-top: 20px")
        div.row
            div.col-md-4.col-xs-4.badge
                | something
