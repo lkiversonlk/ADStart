@@ -11,9 +11,10 @@ block content
 
    section.container-fluid.user_info
        div.row
-           div(style="width:96px; float:left; margin-left:10%")
+           div(style="width:96px; float:left; padding-left:10%")
                img(src=user.iconUrl, style="width:100%")
-           div(style="float:left; margin-left:10%; line-height: 40px; font-size:20px")
-               | #{user.name}
-               p
+           div(style="float:left; padding-left:10%; height: 96px")
+               div(style="height:40px; line-height:40px")
+                   | #{user.name}
+               div
                    | describtions
