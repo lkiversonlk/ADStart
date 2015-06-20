@@ -40,7 +40,7 @@ Dao.prototype.loadDelegations = function(user_id){
     ret.push(
         {
             product_name: "",
-            brand_name : "2342"
+            brand : "2342"
         }
     );
     return ret;
