@@ -19,15 +19,15 @@ block content
 
     section.shadow-border.user_stat_panel.container(style="margin-top: 20px")
        div.row
-           div.col-md-4.col-xs-4.badge
-               | something
+           div.col-md-4.col-xs-4
+               img(src=user.iconUrl, style="width: 100%")
            div.col-md-8.col-xs-8.stat
                p
-                   | 总带盐
+                   | 总带盐 #{user.total_delegations}
                p
-                   | 通过    未通过
+                   | 通过 #{user.passed_delegations}   未通过 #{user.denied_delegations} 审核中 #{user.ongoing_delegations}
                p
-                   | 平均带盐点击量
+                   | 平均带盐点击量 20%
 
     section.container.delegations
 

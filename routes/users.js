@@ -38,7 +38,11 @@ router.get("/:user_id", function(req, res, next){
             var data = {
               user : {
                 name : result.nickname,
-                iconUrl : result.headimgurl + "46"
+                iconUrl : result.headimgurl + "46",
+                total_delegations: 128,
+                passed_delegations: 80,
+                denied_delegations: 20,
+                ongoing_delegations: 28
               },
               delegations : delegations
             };
