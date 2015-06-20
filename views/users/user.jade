@@ -16,7 +16,9 @@ block content
                 img(src=user.iconUrl, style="width:100%")
             div(style="float:left; margin-left:10%;")
                 | #{user.name}
-    section
+    section.container
+        div.row
+            | 总计
 
     section.panel.panel-default.user_stat_panel.container
         div.row.panel-body
@@ -31,9 +33,10 @@ block content
                     | 平均带盐点击量 20%
 
     section.delegations
-        div(style="padding-left:10px")
-            span.glyphicon.glyphicon-globe
-            | 我的带盐
+        div.container
+            div.row
+                span.glyphicon.glyphicon-globe
+                | 我的带盐
         ul#delegation-list.list-group
             each product_name, brand_name in delegations
                 li
