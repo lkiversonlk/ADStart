@@ -41,7 +41,7 @@ router.get("/:user_id", function(req, res, next){
             var data = {
               user : {
                 name : name,
-                iconUrl : result.headimgurl
+                iconUrl : result.headimgurl + "96"
               }
             };
             res.render("users/user", data);
