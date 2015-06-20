@@ -6,31 +6,32 @@ extends ../layout
 block content
     link(rel='stylesheet', href='/stylesheets/user.css')
     section.header
-       div.navbar.navbar-default
-           div.container(style="height:3em;text-align:center")
-               img(src="/images/title.png", height="100%")
+        div.navbar.navbar-default
+            div.container(style="height:3em;text-align:center")
+                img(src="/images/title.png", height="100%")
 
     section.container-fluid.user_info
-       div.row
-           div(style="width:30px; float:left; margin-left:10px")
-               img(src=user.iconUrl, style="width:100%")
-           div(style="float:left; margin-left:10%;")
-                   | #{user.name}
+        div.row
+            div(style="width:30px; float:left; margin-left:10px")
+                img(src=user.iconUrl, style="width:100%")
+            div(style="float:left; margin-left:10%;")
+                | #{user.name}
+    section
 
-    section.panel.panel-default.user_stat_panel.container(style="margin-top: 20px")
-       div.row.panel-body
-           div.col-md-4.col-xs-4
-               img(src=user.iconUrl, style="width: 100%")
-           div.col-md-8.col-xs-8.stat
-               p
-                   | 总带盐 #{user.total_delegations}
-               p
-                   | 通过 #{user.passed_delegations}   未通过 #{user.denied_delegations} 审核中 #{user.ongoing_delegations}
-               p
-                   | 平均带盐点击量 20%
+    section.panel.panel-default.user_stat_panel.container
+        div.row.panel-body
+            div.col-md-4.col-xs-4
+                img(src=user.iconUrl, style="width: 100%")
+            div.col-md-8.col-xs-8.stat
+                p
+                    | 总带盐 #{user.total_delegations}
+                p
+                    | 通过 #{user.passed_delegations}   未通过 #{user.denied_delegations} 审核中 #{user.ongoing_delegations}
+                p
+                    | 平均带盐点击量 20%
 
     section.delegations
-        div
+        div(style="padding-left:10px")
             span.glyphicon.glyphicon-globe
             | 我的带盐
         ul#delegation-list.list-group
