@@ -73,6 +73,9 @@ app.use(function (err, req, res, next) {
     });
 });
 
+if(appConfig.data.log_level){
+    winston.level = appConfig.data.log_level;
+}
 
 //initial Dao
 var Dao = require("./data/dao").Dao;
@@ -86,8 +89,10 @@ try {
 
 var api = new wechatapi(appConfig.data.appid, appConfig.data.appSecret);
 app.set("wechat-api", api);
+winston.log("info", "wechat-api loaded");
 
 var oauth = new wechatOauth(appConfig.data.appid, appConfig.data.appSecret);
 app.set("wechat-oauth", oauth);
+winston.log("info", "wechat oauth loaded");
 
 module.exports = app;

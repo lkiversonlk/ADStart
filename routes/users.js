@@ -19,6 +19,7 @@ router.get("/:user_id", function(req, res, next){
   var dao = req.app.get("dao");
 
   if(req.params.user_id == 'mine'){
+    winston.log("debug", "get mine request");
     var code = req.query.code;
     var oauth = req.app.get("wechat-oauth");
     oauth.getAccessToken(code, function(err, result){
@@ -29,6 +30,7 @@ router.get("/:user_id", function(req, res, next){
         var openid = result.data.openid;
         oauth.getUser(openid, function(err, result){
           if(err){
+            winston.log("error", "fail to get user info", err);
             res.end("sorry, we can't get your infomation");
           }else{
             var user_id = result.openid;
@@ -40,18 +42,19 @@ router.get("/:user_id", function(req, res, next){
               },
               delegations : delegations
             };
-
             res.render("users/user", data);
           }
         });
       }
     });
   }else{
+    winston.log("debug", "retrive user info :" + req.params.user_id);
     res.end();
   }
 });
 
 
+/*
 router.get("/mine", function(req, res, next){
   var code = req.query.code;
   res.write("code : " + code);
@@ -68,5 +71,6 @@ router.get("/mine", function(req, res, next){
   });
   res.end();
 });
+*/
 
 module.exports = router;
