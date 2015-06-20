@@ -30,7 +30,20 @@ Dao.prototype.addProduct = function(product){
 };
 
 Dao.prototype.loadDelegations = function(user_id){
-
+    var ret = [];
+    ret.push(
+        {
+            product_name: "小龙虾",
+            brand_name: "花猫美食"
+        }
+    );
+    ret.push(
+        {
+            product_name: "健身",
+            brand_name : "英派斯健身"
+        }
+    );
+    return ret;
 };
 
 exports.Dao = Dao;
