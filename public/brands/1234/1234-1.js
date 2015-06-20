@@ -5,7 +5,7 @@
 $("#camera").on('click',function(){
     wx.chooseImage({
         success: function(res){
-            alert("success");
+            $("#photo").attr("src", res.localIds[0]);
         }
     })
 });
