@@ -11,10 +11,22 @@ block content
 
    section.container-fluid.user_info
        div.row
-           div(style="width:60px; float:left; padding-left:10%")
+           div(style="width:60px; float:left; padding-left:10px")
                img(src=user.iconUrl, style="width:100%")
-           div(style="float:left; padding-left:10%; height: 50px")
+           div(style="float:left; padding-left:10%; height: 50px; line-height:50px; font-size:50px")
                    | #{user.name}
+
+   section.statistics.container
+       div.row
+           div.col-md-4.col-xs-4.badge
+               | something
+           div.col-md-8.col-xs-8.stat
+               p
+                   | 总带盐
+               p
+                   | 通过    未通过
+               p
+                   | 平均带盐点击量
 
    section.container.delegations
 
