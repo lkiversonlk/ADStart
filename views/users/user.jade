@@ -4,14 +4,14 @@
 extends ../layout
 
 block content
-   section.container-fluid
+   section.header
        div.navbar.navbar-default
            div.container(style="height:3em;text-align:center")
                img(src="/images/title.png", height="100%")
 
    section.container-fluid.user_info
        div.row
-           div.col-md-4.col-xs-4
+           div.col-md-4.col-xs-3
                img
-           div.col-md-6.col-md-offset-1.col-xs-5.col-xs-offset-1
-               | 亲爱的带盐人#{user.name}
+           div.col-md-6.col-md-offset-1.col-xs-8.col-xs-offset-1
+               | #{user.name}
