@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var winston = require("winston");
 
 /**
  * get user self infomation
@@ -19,15 +20,33 @@ router.get("/:user_id", function(req, res, next){
     var code = req.query.code;
     var oauth = req.app.get("wechat-oauth");
     oauth.getAccessToken(code, function(err, result){
-      var accessToken = result.data.access_token;
-      var openid = result.data.openid;
-      oauth.getUser(openid, function(err, result){
-        if(err){
-          res.end("sorry, we can't get your infomation");
-        }else{
-          res.end("Hello, " + result.nickname)
-        }
-      });
+      if(err){
+        winston.log("error", "fail to get oauth access token ", err);
+      }else{
+        var accessToken = result.data.access_token;
+        var openid = result.data.openid;
+        oauth.getUser(openid, function(err, result){
+          if(err){
+            res.end("sorry, we can't get your infomation");
+          }else{
+            var name = result.nickname + " ";
+            switch(result.sex){
+              case "1" :
+                    nickname += "先生";
+                    break;
+              case "2":
+                    nickname += "女士";
+                    break;
+            };
+            var data = {
+              user : {
+                name : name
+              }
+            };
+            res.render("users/user", data);
+          }
+        });
+      }
     });
   }else{
     res.end();
