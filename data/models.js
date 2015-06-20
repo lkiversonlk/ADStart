@@ -19,7 +19,19 @@ function template(){
     var self = this;
 };
 
+/**
+ * a delegation should have:
+ * user_id
+ * brand_id
+ * product_id
+ * status
+ */
+function delegation(){
+    var self = this;
+
+};
 
 exports.brand = brand;
 exports.product = product;
 exports.template = template;
+exports.delegation = delegation;

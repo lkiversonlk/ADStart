@@ -16,6 +16,8 @@ router.get('/', function(req, res, next) {
 
 
 router.get("/:user_id", function(req, res, next){
+  var dao = req.app.get("dao");
+
   if(req.params.user_id == 'mine'){
     var code = req.query.code;
     var oauth = req.app.get("wechat-oauth");
@@ -29,21 +31,16 @@ router.get("/:user_id", function(req, res, next){
           if(err){
             res.end("sorry, we can't get your infomation");
           }else{
-            var name = result.nickname + " ";
-            switch(result.sex){
-              case "1" :
-                    nickname += "先生";
-                    break;
-              case "2":
-                    nickname += "女士";
-                    break;
-            };
+            var user_id = result.openid;
+            var delegations = dao.loadDelegations(user_id);
             var data = {
               user : {
-                name : name,
+                name : result.nickname,
                 iconUrl : result.headimgurl + "64"
-              }
+              },
+              delegations : delegations
             };
+
             res.render("users/user", data);
           }
         });

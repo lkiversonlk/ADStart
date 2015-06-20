@@ -29,4 +29,8 @@ Dao.prototype.addProduct = function(product){
 
 };
 
+Dao.prototype.loadDelegations = function(user_id){
+
+};
+
 exports.Dao = Dao;

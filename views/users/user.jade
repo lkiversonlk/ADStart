@@ -11,7 +11,7 @@ block content
 
    section.container-fluid.user_info
        div.row
-           div.col-md-4.col-xs-3
-               img(src=user.iconUrl)
+           div(style="width:64px; float:left; margin-left:10%")
+               img(src=user.iconUrl, style="width:100%")
            div.col-md-6.col-md-offset-1.col-xs-8.col-xs-offset-1
                | #{user.name}
