@@ -10,14 +10,14 @@ block content
             div.container(style="height:3em;text-align:center;")
                 img(src="/images/title.png", style="height:100%")
 
-    section.container-fluid.user_info
+    section.container-fluid.user_info(style="padding-top:10px; padding-bottom:10px")
         div.row
             div(style="width:30px; float:left; margin-left:10px;")
                 img(src=user.iconUrl, style="width:100%")
             div(style="float:left; margin-left:10%;line-height:30px")
                 | #{user.name}
 
-    section.container
+    section.container.
         div.row
             | 总计
 
@@ -39,10 +39,10 @@ block content
                 span.glyphicon.glyphicon-globe
                 | 我的带盐
         ul#delegation-list.list-group
-            each product_name, brand_name in delegations
+            each delegation in delegations
                 li
                     a.kliu-list-item
-                        | #{product_name}, #{brand_name}
+                        | #{delegation.product_name}, #{delegation.brand_name}
 
 
 
