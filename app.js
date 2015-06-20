@@ -14,7 +14,7 @@ var config = require("./config/config").config;
 var appConfig = new config(process.cwd());
 var wechatapi = require("wechat-api");
 var wechatOauth = require("wechat-oauth");
-
+var winston = require("winston");
 var app = express();
 
 // view engine setup
