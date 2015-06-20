@@ -42,6 +42,7 @@ router.get("/:user_id", function(req, res, next){
               },
               delegations : delegations
             };
+            winston.log("debug", "render user with ", data);
             res.render("users/user", data);
           }
         });
