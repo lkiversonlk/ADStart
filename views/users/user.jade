@@ -30,15 +30,11 @@ block content
                    | 平均带盐点击量 20%
 
     section.container.delegations
-        div.panel.panel-default
-            div.panel-heading
-                | 我的带盐
-            div.panel-body
-                ul#delegation-list.list-group
-                    each product_name, brand_name in delegations
-                        li
-                            a.list-group-item
-                                | #{product_name}, #{brand_name}
+        ul#delegation-list.list-group
+            each product_name, brand_name in delegations
+                li
+                    a.list-group-item
+                        | #{product_name}, #{brand_name}
 
 
 
