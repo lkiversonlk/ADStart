@@ -4,7 +4,6 @@
 extends ../layout
 
 block content
-    link(rel='stylesheet', href='/stylesheets/user.css')
     section.header
        div.navbar.navbar-default
            div.container(style="height:3em;text-align:center")
@@ -17,7 +16,7 @@ block content
            div(style="float:left; padding-left:10%;")
                    | #{user.name}
 
-   section.border.container(style="padding-top: 20px")
+   section.shadow-border.container(style="padding-top: 20px")
        div.row
            div.col-md-4.col-xs-4.badge
                | something
