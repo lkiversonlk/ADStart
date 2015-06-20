@@ -36,7 +36,7 @@ router.get("/:user_id", function(req, res, next){
             var data = {
               user : {
                 name : result.nickname,
-                iconUrl : result.headimgurl + "96"
+                iconUrl : result.headimgurl + "46"
               },
               delegations : delegations
             };
