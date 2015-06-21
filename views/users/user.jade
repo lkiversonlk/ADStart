@@ -24,7 +24,7 @@ block content
     section.panel.panel-default.user_stat_panel.container
         div.row.panel-body
             div.col-md-4.col-xs-4
-                img(src=user.iconUrl, style="width: 100%")
+                img(src=user.iconUrl, style="height: 100%")
             div.col-md-8.col-xs-8.stat
                 p
                     | 总带盐 #{user.total_delegations}
@@ -38,6 +38,35 @@ block content
             div.row
                 span.glyphicon.glyphicon-globe
                 | 我的带盐
+        ul#delegation-list.list-group
+            each delegation in delegations
+                li
+                    a.kliu-list-item
+                        div.left(style="text-align:center; width:60px; height:60px")
+                            img(src="/brands/" + delegation.brand.id+"/logo.png", style="height:100%")
+
+                        div.left(style=" margin:5px 15px")
+                            div
+                                | #{delegation.brand.name}
+                            div
+                                | #{delegation.product.name}
+
+                        div.right(style="line-height:50px")
+                            case delegation.status
+                                when "0"
+                                    span.label.label-default
+                                           | 审核中
+                                when "1"
+                                    span.label.label-success
+                                           | 通过
+                                when "2"
+                                    span.label.label-danger
+                                           | 未通过
+                        div.right(style="line-height:25px; margin:5px")
+                            div
+                                | #{delegation.template.name}
+                            div
+                                | #{delegation.creationTime}
 
 
 
