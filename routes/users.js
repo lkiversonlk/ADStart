@@ -44,7 +44,7 @@ router.get("/:user_id", function(req, res, next){
                 denied_delegations: 20,
                 ongoing_delegations: 28
               },
-              delegations : delegations
+              delegations : []
             };
             winston.log("debug", "render user with ", data);
             res.render("users/user", data);
