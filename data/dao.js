@@ -34,13 +34,17 @@ Dao.prototype.loadDelegations = function(user_id){
     ret.push(
         {
             product_name: "小龙虾",
-            brand: "1234"
+            brand_name : "花猫美食",
+            brand: "1234",
+            status : "审核中"
         }
     );
     ret.push(
         {
             product_name: "",
-            brand : "2342"
+            brand_name : "英派斯健身",
+            brand : "2342",
+            status : "审核通过"
         }
     );
     return ret;

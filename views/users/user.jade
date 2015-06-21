@@ -42,9 +42,14 @@ block content
             each delegation in delegations
                 li
                     a.kliu-list-item
-                        img(src="/brands/" + delegation.brand + "/logo.png")
+                        div(style="width: 40px;")
+                            img(src="/brands/" + delegation.brand + "/logo.png")
+                            p
+                                | #{delegation.brand_name}
                         div
-                            | this is dfasdfasdfasdf
+                            | #{delegation.product_name}
+                        div
+                            | #{delegation.status}
 
 
 
