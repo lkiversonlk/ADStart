@@ -42,14 +42,27 @@ block content
             each delegation in delegations
                 li
                     a.kliu-list-item
-                        div(style="width: 40px;").left
-                            img(src="/brands/" + delegation.brand + "/logo.png")
-                            p
-                                | #{delegation.brand_name}
-                        div.left
-                            | #{delegation.product_name}
-                        div.left
-                            | #{delegation.status}
+                        div.left(style="text-align:center")
+                            img(src="./brands/" + #{delegation.brand.id}+"/logo.png", style="width=60px; height=60px")
+                        div.left(style="line-height:25px; margin:5px")
+                            div
+                                | #{delegation.brand.name}
+                            div
+                                | #{delegation.product.name}
+                        div.right(style="line-height:50px")
+                            case #{delegation.status}
+                                when 0:span.label.label-default
+                                           | 审核中
+                                when 1:span.label.label-success
+                                           | 通过
+                                when 2:span.label.label-danger
+                                           | 未通过
+                        div.right(style="line-height:25px; margin:5px")
+                            div
+                                #{delegation.template.name}
+                            div
+                                #{delegation.creationTime}
+
 
 
 

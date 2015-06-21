@@ -9,8 +9,9 @@
  * @param name
  * @param brief
  */
-function brand(name, brief){
+function brand(id, name, brief){
     var self = this;
+    self.id = id;
     self.name = name;
     self.brief = brief;
 };
@@ -25,8 +26,10 @@ function brand(name, brief){
  */
 function product(name, brief){
     var self = this;
+    self.id = id;
     self.name = name;
     self.brief = brief;
+    self.brand_id = brand_id
 };
 
 /**

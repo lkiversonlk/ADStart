@@ -31,21 +31,44 @@ Dao.prototype.addProduct = function(product){
 
 Dao.prototype.loadDelegations = function(user_id){
     var ret = [];
+    var hua_brand = {
+        'name':"花猫美食",
+        'brief':"麻辣小龙虾，各种小炒！",
+        'id' : "1234"
+    };
+    var ying_brand = {
+        'name' : "英派斯健身",
+        'brief' : "迎接健康生活",
+        'id' : "2342",
+    };
+
+    var hua_product_1 = {
+        "id" : "1234-1",
+        "name" : "麻辣小龙虾",
+        "brief" : "用花猫秘制调料辣炒出来的小龙虾，肉质鲜嫩，麻辣诱惑！",
+        "brand" : hua_brand
+    };
+
+    var hua_product_1_template = {
+        "id" : "1234-1-23",
+        "name" : "麻辣小龙虾-诱惑版",
+        "brand" : hua_brand,
+        "product" : hua_product_1
+    };
+
+    var hua_product_1_delegation = {
+        "id" : "1234-1-23-234",
+        "name" : "给花猫的带盐",
+        "user" : "234",
+        "template" : hua_product_1_template,
+        "brand" : hua_brand,
+        "product" :  hua_product_1,
+        "status" : "1",
+        "creationTime" : "2015-6-22"
+    };
+
     ret.push(
-        {
-            product_name: "小龙虾",
-            brand_name : "花猫美食",
-            brand: "1234",
-            status : "审核中"
-        }
-    );
-    ret.push(
-        {
-            product_name: "",
-            brand_name : "英派斯健身",
-            brand : "2342",
-            status : "审核通过"
-        }
+        hua_product_1_delegation
     );
     return ret;
 };
