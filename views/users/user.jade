@@ -43,12 +43,13 @@ block content
                 li
                     a.kliu-list-item
                         div.left(style="text-align:center")
-                            img(src="./brands/" + #{delegation.brand.id}+"/logo.png", style="width=60px; height=60px")
+                            //img(src="./brands/" + #{delegation.brand.id}+"/logo.png", style="width=60px; height=60px")
+
                         div.left(style="line-height:25px; margin:5px")
                             div
-                                | #{delegation.brand.name}
+                                //| #{delegation.brand.name}
                             div
-                                | #{delegation.product.name}
+                                //| #{delegation.product.name}
                         div.right(style="line-height:50px")
                             case #{delegation.status}
                                 when 0:span.label.label-default
@@ -59,9 +60,9 @@ block content
                                            | 未通过
                         div.right(style="line-height:25px; margin:5px")
                             div
-                                #{delegation.template.name}
+                                //#{delegation.template.name}
                             div
-                                #{delegation.creationTime}
+                                //#{delegation.creationTime}
 
 
 
