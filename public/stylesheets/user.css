@@ -18,3 +18,7 @@ li{
 .kliu-list-item:first-child{
     border-top:1px solid #ddd;
 }
+
+.left{
+    float: left;
+}
