@@ -43,7 +43,7 @@ wx.ready(function(){
                                 if(i < len){
                                     upload();
                                 }else{
-                                    alert(JSON.stringif(image_serverIds));
+                                    alert(JSON.stringify(image_serverIds));
                                 }
                             }
                         })

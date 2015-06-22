@@ -23,7 +23,7 @@ router.get('/:template_id', function(req, res, next) {
                 var template = templates[0];
                 var api = req.app.get("wechat-api");
                 var param = {
-                    debug : true,
+                    debug : false,
                     jsApiList : [
                         'chooseImage',
                         'uploadImage'
