@@ -8,6 +8,7 @@
 wx.config(config);
 
 wx.ready(function(){
+    $("#start_upload").append("<a><p>请点击以开始上传</p></a>");
     $("#start_upload").on("click", function(){
         wx.chooseImage({
             success: function(res){
