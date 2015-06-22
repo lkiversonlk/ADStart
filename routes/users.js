@@ -34,20 +34,28 @@ router.get("/:user_id", function(req, res, next){
             res.end("sorry, we can't get your infomation");
           }else{
             var user_id = result.openid;
-            var delegations = dao.loadDelegations(user_id);
-            var data = {
-              user : {
-                name : result.nickname,
-                iconUrl : result.headimgurl + "46",
-                total_delegations: 128,
-                passed_delegations: 80,
-                denied_delegations: 20,
-                ongoing_delegations: 28
-              },
-              delegations : delegations
-            };
-            winston.log("debug", "render user with ", data);
-            res.render("users/user", data);
+            var delegations = dao.get("delegations", {
+              user_id : user_id
+            }, function(error, delegations){
+              if(error){
+                winston.log("error", "fail to load delegations of user " + user_id, error);
+                res.end("can't find your infomation in the database");
+              }else{
+                var data = {
+                  user : {
+                    name : result.nickname,
+                    iconUrl : result.headimgurl + "46",
+                    total_delegations: 128,
+                    passed_delegations: 80,
+                    denied_delegations: 20,
+                    ongoing_delegations: 28
+                  },
+                  delegations : delegations
+                };
+                winston.log("debug", "render user with ", data);
+                res.render("users/user", data);
+              }
+            });
           }
         });
       }
