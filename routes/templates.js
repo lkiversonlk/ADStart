@@ -25,7 +25,8 @@ router.get('/:template_id', function(req, res, next) {
                 var param = {
                     debug : true,
                     jsApiList : [
-                        'chooseImage'
+                        'chooseImage',
+                        'uploadImage'
                     ],
                     url : req.protocol + "://" + req.get('host') + req.originalUrl
                 };

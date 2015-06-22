@@ -28,6 +28,28 @@ wx.ready(function(){
                     $("#start_upload").hide();
                     $("#confirm_upload").show();
                 }
+
+                $("#confirm_upload_btn").unbind("click");
+                $("#confirm_upload_btn").on("click", function(){
+                    var i = 0, len = localIds.length;
+                    var image_serverIds = [];
+                    function upload(){
+                        wx.uploadImage({
+                            localId: localIds[i],
+                            isShowProgressTips:1,
+                            success : function(res){
+                                i++;
+                                image_serverIds.push(res.serverId);
+                                if(i < len){
+                                    upload();
+                                }else{
+                                    alert(JSON.stringif(image_serverIds));
+                                }
+                            }
+                        })
+                    }
+                    upload();
+                });
             }
         });
     });
