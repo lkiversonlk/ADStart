@@ -8,13 +8,15 @@
 wx.config(config);
 
 wx.ready(function(){
-    $("#start_upload").append("<br/><a>请点击以开始上传</a>");
+    $("#start_upload_btn").show();
     $("#start_upload").on("click", function(){
         wx.chooseImage({
             success: function(res){
                 var localIds = res.localIds;
                 var imgs = $(".dyr_markup");
                 $(imgs[0]).attr("src", localIds[0]);
+                $("#start_upload").hide();
+                $("#confirm_upload").show();
             }
         });
     });
