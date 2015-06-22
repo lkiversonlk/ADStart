@@ -11,10 +11,10 @@ block content
         div#start_upload.alert.alert-info
             |  #{template.requirement}
         div#confirm_upload.alert.alert-info(style="display:none;text-align:center;font-size:20px")
-            span.glyphicon.glyphicon-remove(style="float:left")
+            span#confirm_upload_btn.glyphicon.glyphicon-remove(style="float:left")
             span
                 |  您准备为ta做一次带盐吗？
-            span.glyphicon.glyphicon-ok(style="float:right")
+            span#cancel_upload_btn.glyphicon.glyphicon-ok(style="float:right")
         script(src='/templates/base.js')
 
     block template
