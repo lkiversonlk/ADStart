@@ -80,7 +80,7 @@ if(appConfig.data.log_level){
 //initial Dao
 var Dao = require("./data/dao").Dao;
 try {
-    var dao = new Dao("");
+    var dao = new Dao(appConfig.data.database);
     app.set("dao", dao);
 } catch (error) {
     winston.log("error", "fail to load database", error)

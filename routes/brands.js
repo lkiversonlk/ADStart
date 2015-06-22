@@ -4,14 +4,22 @@
 
 var express = require('express');
 var router = express.Router();
+var winston = require("winston");
 
 /* GET brands listing. */
 router.get('/', function(req, res, next) {
     var dao = req.app.get("dao");
-    var data = {
-        brands : dao.allBrands()
-    };
-    res.render('brands', data);
+    dao.all('brands', function(error, brands){
+        if(error){
+            winston.log("error", "fail to load brands list", error);
+            res.end();
+        }else{
+            var data = {
+                brands : brands
+            };
+            res.render("brands", data);
+        }
+    });
 });
 
 router.get("/:brand_id", function(req, res){

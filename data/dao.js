@@ -5,16 +5,42 @@
 var yaml = require("js-yaml");
 var fs = require("fs");
 var brand = require("./models").brand;
+var Datastore = require("nedb");
+var async = require("async");
 
 function Dao(param){
-
+    var self = this;
+    self.db = {};
+    self.db.brands = new Datastore({
+        filename: param + "/brands.nedb",
+        autoload : true
+    });
+    self.db.products = new Datastore({
+        filename: param + "/products.nedb",
+        autoload : true
+    });
+    self.db.templates = new Datastore({
+        filename: param + "/templates.nedb",
+        autoload : true
+    });
+    self.db.delegations = new Datastore({
+        filename: param + "/delegations.nedb",
+        autoload : true
+    })
 };
 
-Dao.prototype.addBrands = function(brand){
-
+/*
+Dao.prototype.addBrands = function(brands, callback){
+    var self = this;
+    self.db.brands.insert(brands, callback);
 };
+*/
 
-Dao.prototype.allBrands = function(){
+/*
+Dao.prototype.allBrands = function(callback){
+    var self = this;
+    self.db.brands.find({}).exec(callback);
+
     var brands = [];
     var huamao = new brand("花猫美食", "logo_lol.png", "各种麻辣小炒，螃蟹麻小，不容错过！");
     huamao.id = "1234";
@@ -24,12 +50,17 @@ Dao.prototype.allBrands = function(){
     brands.push(yingsipai);
     return brands;
 };
+*/
 
-Dao.prototype.addProduct = function(product){
-
+/*
+Dao.prototype.addProduct = function(product, callback){
+    var self = this;
+    self.db.products.insert(product, callback);
 };
+*/
 
-Dao.prototype.loadDelegations = function(user_id){
+/*
+Dao.prototype.loadDelegations = function(user_id, callback){
     var ret = [];
     var hua_brand = {
         'name':"花猫美食",
@@ -71,6 +102,27 @@ Dao.prototype.loadDelegations = function(user_id){
         hua_product_1_delegation
     );
     return ret;
+
+    var self = this;
+    self.db.delegations.find({
+        user_id : user_id
+    }, callback);
 };
+*/
+
+Dao.prototype.add = function(type, docs, callback){
+    var self = this;
+    self.db[type].insert(docs, callback);
+};
+
+Dao.prototype.all = function(type, callback){
+    var self = this;
+    self.db[type].find({}).exec(callback);
+};
+
+Dao.prototype.get = function(type, query, callback){
+    var self = this;
+    self.db[type].find(query, callback);
+}
 
 exports.Dao = Dao;

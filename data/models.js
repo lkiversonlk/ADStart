@@ -46,9 +46,12 @@ function template(){
 /**
  * a delegation should have:
  * id
- * user
- * brand
- * product
+ * user_id
+ * brand_id
+ * brand_name
+ * product_id
+ * product_name
+ * nickname
  * status
  */
 function delegation(){
