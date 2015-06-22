@@ -1,21 +1,10 @@
 //
    Created by kliu on 19/06/2015.
 
-extends ../layout
-block content
-    if !is_delegation
-        script(typ="text/javascript").
-            var config = !{configParam};
-        script(src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
-        script(src='/templates/base.js')
-        div.template-requirement
-            div.alert.alert-info
-                span.label.label-info
-                    | 品牌方要求
-                p
-                    |  #{template.requirement}
+extends base
 
+block template
     div(style="width:50px; height: 50px")
-        img#markup_1(style="height:100%", src="#{markups[0]}")
+        img.dyr_markup(style="height:100%", src="#{markups[0]}")
     script(src="/brands/1234/1234-1.js")
 
