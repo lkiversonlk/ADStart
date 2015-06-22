@@ -4,16 +4,17 @@
 extends ../layout
 
 block content
-   script(typ="text/javascript").
-      var config = !{configParam};
-   script(src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
-   script(src='/templates/base.js')
+   if !is_delegation
+      script(typ="text/javascript").
+         var config = !{configParam};
+      script(src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
+      script(src='/templates/base.js')
 
-   div.template-requirement
-      div.alert.alert-info
-         span.label.label-info
-             | 品牌方要求
-         p
-             | #{template.requirement}
+      div.template-requirement
+         div.alert.alert-info
+            span.label.label-info
+                | 品牌方要求
+            p
+                | #{template.requirement}
 
    block template

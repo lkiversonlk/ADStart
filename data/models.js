@@ -37,7 +37,8 @@ function product(name, brief){
  * brand
  * product
  * name
- * brief
+ * requirement
+ * placeholder
  */
 function template(){
     var self = this;
