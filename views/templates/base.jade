@@ -8,10 +8,9 @@ block content
         script(typ="text/javascript").
              var config = !{configParam};
         script(src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
-        script(src='/templates/base.js')
         div.template-requirement
             div#start_upload.alert.alert-info
                 a
                     |  #{template.requirement}
-
+        script(src='/templates/base.js')
     block template
