@@ -8,8 +8,10 @@
 wx.config(config);
 
 wx.ready(function(){
-    $("#start_upload_btn").show();
+    $("#start_upload").append("<br/> 请点击本框选择图片")
     $("#start_upload").on("click", function(){
+        $("#start_upload").hide();
+        $("#confirm_upload").show();
         wx.chooseImage({
             success: function(res){
                 var localIds = res.localIds;
