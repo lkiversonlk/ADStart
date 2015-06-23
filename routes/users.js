@@ -35,7 +35,7 @@ router.get("/:user_id", function(req, res, next){
           }else{
             var user_id = result.openid;
             var delegations = dao.get("delegations", {
-              user_id : user_id
+              user : user_id
             }, function(error, delegations){
               if(error){
                 winston.log("error", "fail to load delegations of user " + user_id, error);
