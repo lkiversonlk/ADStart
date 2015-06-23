@@ -49,6 +49,8 @@ function template(){
  * product_name
  * template
  * template_name
+ * serverIds
+ * localIds
  * markups
  * status
  */

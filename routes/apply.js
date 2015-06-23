@@ -18,7 +18,8 @@ var winston = require("winston");
 router.post('/', function(req, res, next) {
     if(req.body){
         var user = req.body['user_id'];
-        var data = JSON.parse(req.body['data']);
+        var serverIds = JSON.parse(req.body['serverIds']);
+        var localIds = JSON.parse(req.body['localIds']);
         var template = req.body['template_id'];
         var dao = req.app.get("dao");
         dao.get("templates", {
@@ -39,12 +40,13 @@ router.post('/', function(req, res, next) {
                         status : "0",
                         template : docs[0].id,
                         template_name : docs[0].name,
-                        markups : data
+                        serverIds : serverIds,
+                        localIds : localIds
                     }, function(error, doc){
                         if(error){
                             res.end("fail to insert delegation into records");
                         }else{
-                            res.end("多谢您的带盐！品牌方审核通过后会第一时间通知您!");
+                            res.redirect("/users");
                         }
                     });
                 }

@@ -44,7 +44,8 @@ wx.ready(function(){
                                     /**
                                      * upload finished, now call server to accept this delegation request
                                      */
-                                    $('#upload_form input[name="data"]').val(JSON.stringify(image_serverIds));
+                                    $('#upload_form input[name="serverIds"]').val(JSON.stringify(image_serverIds));
+                                    $('#upload_form input[name="localIds"]').val(JSON.stringify(localIds));
                                     $("#upload_form").submit();
                                 }
                             }

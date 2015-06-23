@@ -24,7 +24,7 @@ router.get('/:delegation_id', function(req, res, next) {
             }else{
                 var data = {
                     is_delegation : true,
-                    markups : docs[0].markups
+                    markups : docs[0].status == 1 ? docs[0].markups : docs[0].localIds  //通过的显示markup，未通过显示localIds
                 }
                 res.render("templates/" + docs[0].template, data);
             }
