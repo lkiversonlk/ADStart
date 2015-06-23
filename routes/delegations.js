@@ -26,7 +26,7 @@ router.get('/:delegation_id', function(req, res, next) {
                     is_delegation : true,
                     markups : docs[0].markups
                 }
-                res.render("templates/" + docs[0].id, data);
+                res.render("templates/" + docs[0].template, data);
             }
         }
     });
