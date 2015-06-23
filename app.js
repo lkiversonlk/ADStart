@@ -42,7 +42,7 @@ app.use("/wechat", wechatRouter(appConfig.data));
 app.use('/users', users);
 app.use('/brands', brands);
 app.use("/templates", templates);
-app.user("/apply", apply);
+app.use("/apply", apply);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

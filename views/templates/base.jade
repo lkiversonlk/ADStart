@@ -17,8 +17,9 @@ block content
             span#confirm_upload_btn.glyphicon.glyphicon-ok(style="float:right")
         form#upload_form(action="/apply", style="display:none")
             input(type="text",name="type", vlaue="apply")
-            input(type="text",name="user_id", value="")
-            input(type="text",name="data", value="#{user_id}")
+            input(type="text",name="user_id", value="#{user_id}")
+            input(type="text", name="template_id", value="#{template.id}")
+            input(type="text",name="data", value="")
         script(src='/templates/base.js')
 
 
