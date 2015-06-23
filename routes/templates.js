@@ -7,6 +7,8 @@ var router = express.Router();
 var winston = require("winston");
 
 function get_user_openid(req, res, callback){
+    //callback("test");
+
     var code = req.query.code;
     var oauth = req.app.get("wechat-oauth");
     oauth.getAccessToken(code, function(err, result) {
@@ -17,6 +19,7 @@ function get_user_openid(req, res, callback){
             callback(openid);
         }
     });
+
 };
 
 router.get('/noauth/:template_id', function(req, res, next){

@@ -15,8 +15,8 @@ block content
             span
                 |  #{user_id} 您准备为ta做一次带盐吗？
             span#confirm_upload_btn.glyphicon.glyphicon-ok(style="float:right")
-        form#upload_form(action="/apply", style="display:none")
-            input(type="text",name="type", vlaue="apply")
+        form#upload_form(action="/apply", style="display:none", method="post")
+            input(type="text",name="type", value="apply")
             input(type="text",name="user_id", value="#{user_id}")
             input(type="text", name="template_id", value="#{template.id}")
             input(type="text",name="data", value="")
