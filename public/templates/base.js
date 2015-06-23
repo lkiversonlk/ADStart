@@ -7,8 +7,6 @@
  */
 wx.config(config);
 
-var original_markups = [];
-
 wx.ready(function(){
     $("#start_upload").append("<br/> 请点击本框选择图片")
     $("#start_upload").on("click", function(){
@@ -43,6 +41,9 @@ wx.ready(function(){
                                 if(i < len){
                                     upload();
                                 }else{
+                                    /**
+                                     * upload finished, now call server to accept this delegation request
+                                     */
                                     alert(JSON.stringify(image_serverIds));
                                 }
                             }

@@ -13,8 +13,13 @@ block content
         div#confirm_upload.alert.alert-info(style="display:none;text-align:center;font-size:20px")
             span#cancel_upload_btn.glyphicon.glyphicon-remove(style="float:left")
             span
-                |  您准备为ta做一次带盐吗？
+                |  #{user_id} 您准备为ta做一次带盐吗？
             span#confirm_upload_btn.glyphicon.glyphicon-ok(style="float:right")
+        form#upload_form(action="/apply", style="display:none")
+            input(type="text",name="type", vlaue="apply")
+            input(type="text",name="user_id", value="")
+            input(type="text",name="data", value="#{user_id}")
         script(src='/templates/base.js')
+
 
     block template

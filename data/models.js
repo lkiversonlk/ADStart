@@ -57,7 +57,6 @@ function template(){
  */
 function delegation(){
     var self = this;
-
 };
 
 exports.brand = brand;
