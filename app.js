@@ -9,6 +9,7 @@ var config = require("./config/config").config;
 var users = require('./routes/users');
 var brands = require("./routes/brands");
 var templates = require("./routes/templates");
+var delegaions = require("./routes/delegations");
 var apply = require("./routes/apply");
 var wechatRouter = require("./routes/wechat-router").wechatRouter;
 var config = require("./config/config").config;
@@ -43,6 +44,7 @@ app.use('/users', users);
 app.use('/brands', brands);
 app.use("/templates", templates);
 app.use("/apply", apply);
+app.use("/delegations", delegaions);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

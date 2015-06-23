@@ -48,7 +48,7 @@ router.get("/:user_id", function(req, res, next){
                     case "0" : ongoing_delegations++;break;
                     case "1" : passed_delegations++; break;
                     case "2" : denied_delegations++ ; break;
-                  }
+                  };
                 });
                 var data = {
                   user : {

@@ -36,7 +36,10 @@ router.post('/', function(req, res, next) {
                         brand_name : docs[0].brand_name,
                         product : docs[0].product,
                         product_name : docs[0].product_name,
-                        status : "0"
+                        status : "0",
+                        template : docs[0].id,
+                        template_name : docs[0].name,
+                        markups : data
                     }, function(error, doc){
                         if(error){
                             res.end("fail to insert delegation into records");

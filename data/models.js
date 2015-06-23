@@ -47,6 +47,9 @@ function template(){
  * brand_name
  * product
  * product_name
+ * template
+ * template_name
+ * markups
  * status
  */
 function delegation(){
