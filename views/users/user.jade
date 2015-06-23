@@ -43,13 +43,13 @@ block content
                 li
                     a.kliu-list-item
                         div.left(style="text-align:center; width:60px; height:60px")
-                            img(src="/brands/" + delegation.brand.id+"/logo.png", style="height:100%")
+                            img(src="/brands/" + delegation.brand +"/logo.png", style="height:100%")
 
                         div.left(style=" margin:5px 15px")
                             div
-                                | #{delegation.brand.name}
+                                | #{delegation.brand_name}
                             div
-                                | #{delegation.product.name}
+                                | #{delegation.product_name}
 
                         div.right(style="line-height:50px")
                             case delegation.status
@@ -64,7 +64,7 @@ block content
                                            | 未通过
                         div.right(style="line-height:25px; margin:5px")
                             div
-                                | #{delegation.template.name}
+                                | #{delegation.template_name}
                             div
                                 | #{delegation.creationTime}
 

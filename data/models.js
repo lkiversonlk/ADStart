@@ -5,40 +5,35 @@
 /**
  * id
  * name
- * brief
+ * brief  (brief introduction, display in list cells)
+ * detail (detail, display in foot)
  * @param name
  * @param brief
  */
-function brand(id, name, brief){
+function brand(){
     var self = this;
-    self.id = id;
-    self.name = name;
-    self.brief = brief;
 };
 
 /**
  * id
- * brand
  * name
+ * brand
+ * brand_name
  * brief
- * @param name
- * @param brief
  */
-function product(name, brief){
+function product(){
     var self = this;
-    self.id = id;
-    self.name = name;
-    self.brief = brief;
-    self.brand_id = brand_id
 };
 
 /**
  * id
+ * name
  * brand
+ * brand_name
  * product
- * name
+ * product_name
  * requirement
- * placeholder
+ * markups
  */
 function template(){
     var self = this;
@@ -47,12 +42,11 @@ function template(){
 /**
  * a delegation should have:
  * id
- * user_id
- * brand_id
+ * user
+ * brand
  * brand_name
- * product_id
+ * product
  * product_name
- * nickname
  * status
  */
 function delegation(){

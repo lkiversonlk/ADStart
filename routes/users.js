@@ -41,14 +41,23 @@ router.get("/:user_id", function(req, res, next){
                 winston.log("error", "fail to load delegations of user " + user_id, error);
                 res.end("can't find your infomation in the database");
               }else{
+                var total_delegations = delegations.length;
+                var passed_delegations = 0, denied_delegations = 0, ongoing_delegations = 0;
+                delegations.forEach(function(delegation){
+                  switch(delegation.status){
+                    case "0" : ongoing_delegations++;break;
+                    case "1" : passed_delegations++; break;
+                    case "2" : denied_delegations++ ; break;
+                  }
+                });
                 var data = {
                   user : {
                     name : result.nickname,
                     iconUrl : result.headimgurl + "46",
-                    total_delegations: 128,
-                    passed_delegations: 80,
-                    denied_delegations: 20,
-                    ongoing_delegations: 28
+                    total_delegations: total_delegations,
+                    passed_delegations: passed_delegations,
+                    denied_delegations: denied_delegations,
+                    ongoing_delegations: ongoing_delegations
                   },
                   delegations : delegations
                 };
